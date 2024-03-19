@@ -3,6 +3,11 @@
   @for (blog of blogs; track blog.id) {
   <div class="blog-preview-container">
     <div class="blog-preview-content">
+      @if (blog.liked) {
+        <mat-icon (click)="toggleLiked(blog.id)">favorite</mat-icon>
+        }@else {
+        <mat-icon (click)="toggleLiked(blog.id)">favorite_border</mat-icon>
+        }
       <h2>{{ blog.title }}</h2>
       <p>{{ blog.user?.username }}</p>
       <p>{{ blog.content }}</p>
